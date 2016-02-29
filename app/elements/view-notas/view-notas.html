@@ -20,10 +20,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <paper-listbox>
-      <paper-item>Teste 1</paper-item>
-      <paper-item>Teste 2</paper-item>
-      <paper-item>Teste 3</paper-item>
-    </paper-listbox> 
+      
+      <template 
+        is="dom-repeat" 
+        items="{{notas}}">
+          
+          <paper-item>{{item.aluno}}, {{item.materia}}, {{item.nota}}</paper-item>
+      
+      </template>
+
+    </paper-listbox>
+
   </template>
 
 
@@ -33,7 +40,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'view-notas'
+        is: 'view-notas',
+        ready: function () {
+          this.notas = [];
+        }
         
       });
     })();

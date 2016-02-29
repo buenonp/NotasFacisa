@@ -28,10 +28,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <paper-input label="Aluno"></paper-input>
-    <paper-input label="Matéria"></paper-input>
-    <paper-input label="Nota"></paper-input>
-    <paper-button raised>Cadastrar</paper-button>
+    <paper-input id="inputAluno" label="Aluno"></paper-input>
+    <paper-input id="inputMateria" label="Matéria"></paper-input>
+    <paper-input id="inputNota" label="Nota"></paper-input>
+    <paper-button raised on-click="cadastrar">Cadastrar</paper-button>
   </template>
 
 
@@ -41,8 +41,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'cadastro-notas'
-        
+        is: 'cadastro-notas',
+        cadastrar: function () {
+          document.querySelector('view-notas').push('notas',
+              {
+                aluno: document.querySelector('#inputAluno').value,
+                materia: document.querySelector('#inputMateria').value,
+                nota: document.querySelector('#inputNota').value
+              }
+            )
+        }        
       });
     })();
   </script>
